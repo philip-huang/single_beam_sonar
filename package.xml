@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>single_beam_sonar</name>
+  <name>ping1d_sonar</name>
   <version>0.0.0</version>
   <description>ROS driver for Ping Sonar Altimeter and Echosounder from BlueRobotics</description>
   <maintainer email="chenweiz@iu.edu">Weizhe (Wesley) Chen</maintainer>

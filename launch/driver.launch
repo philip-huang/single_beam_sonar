@@ -1,7 +1,7 @@
 <launch>
   <arg name="namespace" default=""/>
 
-  <node ns="/$(arg namespace)" pkg="single_beam_sonar" type="driver.py" name="sonar_driver" output="screen">
+  <node ns="/$(arg namespace)" pkg="ping1d_sonar" type="driver.py" name="sonar_driver" output="screen">
     <param name="usb_port" value="/dev/ttyUSB0" />
     <param name="frequency" value="10" />
     <param name="frame" value="ping_1d" />
