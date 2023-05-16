@@ -1,5 +1,5 @@
 import rospy
-from sensor_msgs.msg import Range
+from ping1d.msg import PingRange
 from brping import Ping1D
 
 
@@ -16,8 +16,8 @@ def publish_sonar_data():
     sonar_driver = Ping1D()
     sonar_driver.connect_serial(device_name=usb_port)
     rospy.init_node("single_beam_sonar_node")
-    pub_sonar = rospy.Publisher("sonar", Range, queue_size=1)
-    range_msg = Range()
+    pub_sonar = rospy.Publisher("sonar", PingRange, queue_size=1)
+    range_msg = PingRange()
     range_msg.header.frame_id = frame
     range_msg.radiation_type = 1
     range_msg.field_of_view = fov
@@ -28,6 +28,7 @@ def publish_sonar_data():
     while not rospy.is_shutdown():
         data = sonar_driver.get_distance_simple()
         confidence = data["confidence"]
+        range_msg.confidence = confidence
         range_msg.range = data["distance"] / 1000.0
         range_msg.header.stamp = rospy.Time.now()
         pub_sonar.publish(range_msg)

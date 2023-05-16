@@ -1,5 +1,5 @@
 <launch>
-  <node pkg="single_beam_sonar" type="driver.py" name="sonar_driver">
+  <node pkg="ping1d" type="driver.py" name="sonar_driver">
     <param name="usb_port" value="/dev/ttyUSB0" />
     <param name="frequency" value="10" />
     <param name="frame" value="odom" />
