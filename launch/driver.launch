@@ -1,7 +1,7 @@
 <launch>
   <arg name="namespace" default=""/>
 
-  <node ns="/$(arg namespace)" pkg="ping1d_sonar" type="driver.py" name="ping1d_driver" output="screen">
+  <node ns="/$(arg namespace)" pkg="ping1d" type="driver.py" name="ping1d_driver" output="screen">
     <param name="usb_port" value="/dev/ping1d" />
     <param name="frequency" value="10" />
     <param name="frame" value="ping1d_link" />
