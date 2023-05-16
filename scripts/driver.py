@@ -7,14 +7,14 @@ from brping import Ping1D
 def publish_sonar_data():
     # Specification of the sonar sensor is available here:
     # https://www.bluerobotics.com/store/sensors-sonars-cameras/sonar/ping-sonar-r2-rp/
-    rospy.init_node("single_beam_sonar_node")
+    rospy.init_node("ping1d_driver")
 
-    usb_port = rospy.get_param('usb_port', '/dev/ttyUSB0')
-    frequency = rospy.get_param('frequency', 10)
-    frame = rospy.get_param('frame', "ping1d_link")
-    fov = rospy.get_param('fov', 0.523)
-    min_range = rospy.get_param("min_range", 0.5)
-    max_range = rospy.get_param("max_range", 50.0)
+    usb_port = rospy.get_param('~usb_port', '/dev/ttyUSB0')
+    frequency = rospy.get_param('~frequency', 10)
+    frame = rospy.get_param('~frame', "ping1d_link")
+    fov = rospy.get_param('~fov', 0.523)
+    min_range = rospy.get_param("~min_range", 0.5)
+    max_range = rospy.get_param("~max_range", 50.0)
 
     sonar_driver = Ping1D()
     sonar_driver.connect_serial(device_name=usb_port)

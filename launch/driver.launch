@@ -1,10 +1,10 @@
 <launch>
   <arg name="namespace" default=""/>
 
-  <node ns="/$(arg namespace)" pkg="ping1d_sonar" type="driver.py" name="sonar_driver" output="screen">
-    <param name="usb_port" value="/dev/ttyUSB0" />
+  <node ns="/$(arg namespace)" pkg="ping1d_sonar" type="driver.py" name="ping1d_driver" output="screen">
+    <param name="usb_port" value="/dev/ping1d" />
     <param name="frequency" value="10" />
-    <param name="frame" value="ping_1d" />
+    <param name="frame" value="ping1d_link" />
     <param name="fov" value="0.523" />
     <param name="min_range" value="0.5" />
     <param name="max_range" value="50.0" />
